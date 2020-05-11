@@ -50,6 +50,10 @@ def test_should_char_convert_string():
     assert_conversion(forms.CharField, String)
 
 
+def test_should_decimal_convert_string():
+    assert_conversion(forms.DecimalField, String)
+
+
 def test_should_email_convert_string():
     assert_conversion(forms.EmailField, String)
 
@@ -95,10 +99,6 @@ def test_should_nullboolean_convert_boolean():
 
 def test_should_float_convert_float():
     assert_conversion(forms.FloatField, Float)
-
-
-def test_should_decimal_convert_float():
-    assert_conversion(forms.DecimalField, Float)
 
 
 def test_should_multiple_choice_convert_connectionorlist():

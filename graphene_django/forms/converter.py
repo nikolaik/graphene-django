@@ -20,6 +20,7 @@ def convert_form_field(field):
 
 @convert_form_field.register(forms.fields.BaseTemporalField)
 @convert_form_field.register(forms.CharField)
+@convert_form_field.register(forms.DecimalField)
 @convert_form_field.register(forms.EmailField)
 @convert_form_field.register(forms.SlugField)
 @convert_form_field.register(forms.URLField)
@@ -51,7 +52,6 @@ def convert_form_field_to_nullboolean(field):
     return Boolean(description=field.help_text)
 
 
-@convert_form_field.register(forms.DecimalField)
 @convert_form_field.register(forms.FloatField)
 def convert_form_field_to_float(field):
     return Float(description=field.help_text, required=field.required)

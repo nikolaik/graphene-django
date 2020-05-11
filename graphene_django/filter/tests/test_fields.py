@@ -388,7 +388,7 @@ def test_filterset_descriptions():
     field = DjangoFilterConnectionField(ArticleNode, filterset_class=ArticleIdFilter)
     max_time = field.args["max_time"]
     assert isinstance(max_time, Argument)
-    assert max_time.type == Float
+    assert max_time.type == String
     assert max_time.description == "The maximum time"
 
 
