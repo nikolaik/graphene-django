@@ -27,7 +27,12 @@ def isiterable(value):
 def _camelize_django_str(s):
     if isinstance(s, Promise):
         s = force_text(s)
-    return to_camel_case(s) if isinstance(s, six.string_types) else s
+    # Non-field django form/DRF serializers errors end up in `__all__`, skip camelizing that into `_All__`.
+    return (
+        to_camel_case(s)
+        if isinstance(s, six.string_types) and not s == "__all__"
+        else s
+    )
 
 
 def camelize(data):
